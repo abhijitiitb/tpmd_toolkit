@@ -1,0 +1,36 @@
+TPMD analysis package
+
+The files and directories included in this directory are: 
+
+src_tools/		TPMD pre- and post-analysis tools' source code
+trajectories/		trajectories to be analyzed should be arranged here
+start.sh		execution file to operate all analysis tools
+parameters.txt		input file required for TPMD analysis
+README			this file
+
+After doing any analysis, the following directories might be generated:
+
+results/		all the results of the analysis are stored here
+trajs/			temporary files created for processing data
+			
+-------------
+
+First, make sure the trajectories you want to analyze are correctly arranged in
+the "trajectories" directory. To learn about this, refer to "examples" directory
+in the parent directory to this directory. 
+
+Next, provide all the inputs in parameters.txt file. Again you can refer to
+parameters.txt files provided in the sub-directories of "examples".
+
+Now you should make the start.sh file executable using command "chmod +x start.sh". 
+
+After ensuring all the above steps, you can run the program with command
+"./start.sh". The rest of the instructions and information will appear in the 
+terminal as you follow the steps mentioned by the program.
+
+Also, changing names of any directory or subdirectories and files from this directory
+onwards can cause errors in the running program.
+
+Note: The information of x, y, and z coordinates of atoms should be mentioned in 3rd, 
+4th and 5th column of trajectory file respectively. Atoms should be present in 
+increasing order of their index number.

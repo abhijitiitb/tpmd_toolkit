@@ -1,0 +1,12 @@
+Displacement versus time plots for atoms throughout the trajectory
+
+The files included in this directory are: 
+
+process/		directory used to process atom wise displacement
+README			this file
+dispVSframe.sh		creates displacement versus frame plots		
+unpbc.sh		takes care of periodic boundry conditions(PBC)
+sign.awk		function to remove the effect of PBC on displacement
+input.sh 		collects input from the user required for the process
+
+For more details, you can refer to the individual files.

@@ -1,0 +1,44 @@
+This is the TPMD toolkit. TPMD stands for Temperature Programmed Molecular Dynamics.
+
+This software package is distributed under the Apache License 2.0.
+(http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+------------------------------------------------------------------------------------
+
+TPMD toolkit is an analysis code designed to study kinetics pathways that are rare
+at the timescale accessible with classical Molecular Dynamics (MD). The toolkit is 
+programmed to run efficiently on parallel computers. It was developed at Compute Aided
+Rational Design lab at Indian Institute of Technology Bombay, India. 
+
+The primary authors of the code are Abhijit Chatterjee (abhijit@che.iitb.ac.in) and 
+Saurabh Shivpuje (saurabh.shivpuje@gmail.com).
+
+This directory includes the following files and sub-directories: 
+
+README			   this file
+LICENSE			   the Apache License 2.0 
+examples		   simple test problems
+tpmd_toolkit		   TPMD analysis tools
+
+Before using this package, you must make sure that you have the following software 
+installed on your system: GNU Bash, Fortran, gnuplot, and LAMMPS.
+
+The first step in the TPMD is to create multiple TPMD trajectories at different temperature
+stages. This process is explained in detail in the directory "examples". The second
+step is to analyze these trajectories in the "tpmd_toolkit" directory. You should look
+for README files in these directories to know their functioning in detail.
+
+The second step requires the trajectories that are to be analyzed are arranged in 
+"trajectories" sub-directory inside the "tpmd_toolkit" directory.
+
+Also, one can either create the TPMD trajectories elsewhere and then copy them inside 
+"trajectories" sub-directory or run the TPMD trajectory generation operation (first step)
+inside the sub-directory "trajectories" itself.
+
+All these different trajectories should be arranged in individual directories with named
+in the natural order like 1, 2, 3,...n for n trajectories. 
+
+After you have trajectories for analysis, you can refer to the README file in "tpmd_toolkit"
+sub-directory for the next steps.
+
+

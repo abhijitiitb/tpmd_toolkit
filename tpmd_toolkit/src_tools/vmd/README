@@ -1,0 +1,9 @@
+Creates visulization for initial and final frames asked by user
+
+The files included in this directory are: 
+
+VMD/			directory used to process trajectory frames
+README			this file
+vmd.sh			separate two frames for visulization and atoms for NEB calculations
+
+For more details, you can refer to the individual files.

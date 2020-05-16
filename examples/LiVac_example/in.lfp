@@ -1,0 +1,133 @@
+############INITIALIZATION#####################
+
+dimension                 3
+units		          metal               
+atom_style                full                    
+boundary                  p p p                 
+variable v equal seed
+
+################ATOM DEFINITION################
+
+read_data 355.cs.lfpvac #Structure file
+group core type 4
+group shell type 5
+
+########################POTENTIAL PARAMETERS###############
+
+kspace_style ewald 1.0e-4 
+
+pair_style buck/coul/long/cs 12.0  
+pair_coeff * * 0.000 1.000 0.0 #Reference: Kuss, C. et al. J. Mater. Chem. 2012, 22, 24889–24893 DOI: 10.1039/c2jm35538h
+pair_coeff 1 5 381.5244 0.30491 0 #Reference: Kuss, C. et al. J. Mater. Chem. 2012, 22, 24889–24893 DOI: 10.1039/c2jm35538h
+pair_coeff 2 5 13207.008 0.22245 0 #Reference: Kuss, C. et al. J. Mater. Chem. 2012, 22, 24889–24893 DOI: 10.1039/c2jm35538h
+pair_coeff 3 5 1028.9741 0.33530 0 #Reference: Kuss, C. et al. J. Mater. Chem. 2012, 22, 24889–24893 DOI: 10.1039/c2jm35538h
+pair_coeff 5 5 39.7594 0.47713 53.204 #Reference: Kuss, C. et al. J. Mater. Chem. 2012, 22, 24889–24893 DOI: 10.1039/c2jm35538h
+
+special_bonds coul 0.0 1.0 1.0
+
+bond_style      harmonic
+bond_coeff      1 51.71 0.0 
+
+
+
+########################SETTINGS##############################
+
+fix momentum all momentum 10 linear 1 1 1 
+comm_modify vel yes
+compute CSequ all temp/cs core shell
+timestep        0.0006 #0.6fs
+
+minimize 0.0 1.0e-8 1000 100000
+
+#########################THERMAL EQUILIBRATION######################
+
+dump            equil all custom 10000 tequil.lammpstrj id type x y z vx vy vz #c_1
+dump_modify equil sort id
+
+
+velocity all create 300 $v  bias yes temp CSequ
+fix cs all nvt temp 300 300 0.07
+fix_modify cs temp CSequ
+thermo		1000
+thermo_style	custom step time temp pe ke etotal press 
+thermo_modify temp CSequ
+run 20000
+unfix cs
+
+undump equil
+
+
+#########################TPMD######################
+
+dump            1 all custom 1000 csnvt.lammpstrj id type x y z vx vy vz #c_1
+dump_modify 1 sort id
+
+velocity all create 300 $v  bias yes temp CSequ
+velocity all scale 300 temp CSequ
+fix cs all nvt temp 300 300 0.07
+fix_modify cs temp CSequ
+thermo		1000
+thermo_style	custom step time temp pe ke etotal press 
+thermo_modify temp CSequ
+run 100000
+unfix cs
+
+velocity all create 400 $v  bias yes temp CSequ
+velocity all scale 400 temp CSequ
+fix cs all nvt temp 400 400 0.07
+fix_modify cs temp CSequ
+thermo		1000
+thermo_style	custom step time temp pe ke etotal press 
+thermo_modify temp CSequ
+run 100000
+unfix cs
+
+velocity all create 500 $v  bias yes temp CSequ
+velocity all scale 500 temp CSequ
+fix cs all nvt temp 500 500 0.07
+fix_modify cs temp CSequ
+thermo		1000
+thermo_style	custom step time temp pe ke etotal press 
+thermo_modify temp CSequ
+run 100000
+unfix cs
+
+velocity all create 600 $v  bias yes temp CSequ
+velocity all scale 600 temp CSequ
+fix cs all nvt temp 600 600 0.07
+fix_modify cs temp CSequ
+thermo		1000
+thermo_style	custom step time temp pe ke etotal press 
+thermo_modify temp CSequ
+run 100000
+unfix cs
+
+velocity all create 700 $v  bias yes temp CSequ
+velocity all scale 700 temp CSequ
+fix cs all nvt temp 700 700 0.07
+fix_modify cs temp CSequ
+thermo		1000
+thermo_style	custom step time temp pe ke etotal press 
+thermo_modify temp CSequ
+run 100000
+unfix cs
+
+velocity all create 800 $v  bias yes temp CSequ
+velocity all scale 800 temp CSequ
+fix cs all nvt temp 800 800 0.07
+fix_modify cs temp CSequ
+thermo		1000
+thermo_style	custom step time temp pe ke etotal press 
+thermo_modify temp CSequ
+run 100000
+unfix cs
+
+velocity all create 900 $v  bias yes temp CSequ
+velocity all scale 900 temp CSequ
+fix cs all nvt temp 900 900 0.07
+fix_modify cs temp CSequ
+thermo		1000
+thermo_style	custom step time temp pe ke etotal press 
+thermo_modify temp CSequ
+run 100000
+unfix cs

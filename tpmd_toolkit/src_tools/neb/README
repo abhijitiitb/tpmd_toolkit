@@ -1,0 +1,10 @@
+Creates LAMMPS NEB compatible input file
+
+The files included in this directory are: 
+
+NEB/			directory used to process trajectory frames
+README			this file
+neb.sh			separate two frames for visualisation and atoms for NEB calculations
+input.sh 		collects inputs from user required for process
+
+For more details, you can refer to the individual files.

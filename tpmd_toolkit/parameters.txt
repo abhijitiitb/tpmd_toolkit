@@ -1,0 +1,20 @@
+#Number of significant digits involved in calculation is depended on input we provide here. It is recommended to use distance parameter with atleast 4 significant digit after decimal point. Name of trajectory file should remain same. To analyze in series fashion, give input 1 in 'Number of row in parallel analysis'. Do not delete any line in this file till line number 20. Do not write units next to any values.
+
+System name=SilverTrimer
+Name of trajectory file=nvt.lammpstrj
+Name of thermal equilibration trajectory file=tequil.lammpstrj
+Number of trajectories=1000
+Number of parallel processes=5
+Total number of atoms in the system=1179				
+Minimum number of consequtive frames for transition validation=5
+Tolerance for transition(distance unit)=2.000
+Tolerance for new state(distance unit)=1.500
+Size of box x-direction(distance unit)=28.6230
+Size of box y-direction(distance unit)=28.6230
+Size of box z-direction(distance unit)=35.0000
+Number of frames in each trajectory=210
+Time duration between two subsequent frames(time unit)=1
+Number of times to allow drift of atom=5
+
+
+#You can use below space for comments or notes

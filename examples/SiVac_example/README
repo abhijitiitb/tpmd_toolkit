@@ -1,0 +1,68 @@
+In this example, the system consists of 5 x 5 x 5 supercell of Silicon solid structure
+with one Silicon vacancy near the centre. A periodic boundary condition is allowed 
+for all three dimensions. On this system, TPMD is performed for 7 temperature steps,
+from 300 K to 900 K with a regular increment of 100 K after every 60 ps. The expected
+kinetic pathways in this example is a position exchange hop of first neighbour atoms
+of vacancy to vacancy position.
+
+The files included in this directory are: 
+
+initial.sivac		atomic structure file
+Si.sw			force field parameter file
+in.sivac		LAMMPS input information script
+parameters.txt		file to be used in FPT analysis
+random.txt		list of 1000 random numbers
+README			this file
+submit.sh		server job submission file to big simulation
+work.sh			creates multiple trajectories as required by
+			TPMD analysis code
+			
+-------------
+
+Edit these two files submit.sh and work.sh based on your computational 
+facilities compatibility. First, edit the work.sh file. 
+
+To create a thousand trajectories, one needs to run a for loop from 
+{1..1000} in line 3 of work.sh. Also, you can create this 1000 trajectories over
+multiple turns like first only a hundred {1..100}, then next 100 {101..200}, and so 
+on till 1000 {901..1000}. The submit.sh is specifically written for a server at
+Computer Aided Design Lab. You must replace the file and concurrently replace the
+corresponding name in lines 6 and 14 of work.sh or remove the file and comment
+the line by prefixing "#" at lines 6 and 14. This action is totally based on your
+scheme of running LAMMPS simulations on your computational facility, for more 
+information, check for working of bash commands. One can do it by typing
+"[command] --help" in the Linux terminal. 
+
+One more important function of work.sh is to copy one random number from random.txt
+and replace the word "seed" in in.sivac file with that random number. It ensures
+that each trajectory will have different initial velocities to produce distinct 
+trajectories.  
+
+Make sure your terminal directory address is the same the as the directory of this file.
+Now make work.sh an executable file by submitting this command in the terminal
+"chmod +x work.sh". Now the trajectory creation step is ready to execute, you
+can do it with a "./work.sh" command in the terminal. 
+
+-------------
+
+The above steps will generate all the trajectory files data in this directory. For
+next step you will have to copy all the distinct trajectory data to "trajectories"
+sub-directory of "tpmd_toolkit" which is the parent directory of "examples".
+
+-------------
+You can also achieve all this by doing the above actions for generating trajectories
+within the "trajectories" sub-directory mentioned above. To do this, you have to copy 
+files required for LAMMPS and the files for executing this process to that location.
+These files are initial.sivac, Si.sw, in.sivac, random.txt, submit.sh, and work.sh.
+Then you can edit and execute the files as described above.
+
+-------------
+After ensuring all the trajectories are correctly arranged in "trajectories"
+directory, copy the parameters.txt file to "tpmd_tookit" directory or edit the 
+default parameters.txt present there referring to the same file in this
+directory.
+
+Check the "tpmd_toolkit" directory to understand further steps in the analysis
+process.
+			
+			

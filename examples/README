@@ -1,0 +1,20 @@
+TPMD toolkit test examples
+
+There are three distinct examples in this directory to give the user a
+thorough understanding of this toolkit. The first step in TPMD is 
+to create multiple trajectories. In these examples, LAMMPS(Large-scale 
+Atomic/Molecular Massively Parallel Simulator) is needed to create such 
+trajectories. The LAMMPS WWW Site at lammps.sandia.gov has more information
+about the code and its uses. 
+
+The three example directories included here are:
+
+Ag_trimer_example	Studying the kinetic pathways of three silver atoms
+			adsorbed on the surface of the silver metal slab
+LiVac_example		Studying the activation energy barrier for lithium 
+			vacancy hop in LiFePO4 (LFP) solid
+SiVac_example		Studying the silicon vacancy hop in Si bulk
+
+Each of these example directories contains the input files that you can learn
+about README files in each directory.
+
