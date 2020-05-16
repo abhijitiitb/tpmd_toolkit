@@ -7,8 +7,9 @@ This software package is distributed under the Apache License 2.0.
 
 TPMD toolkit is an analysis code designed to study kinetics pathways that are rare
 at the timescale accessible with classical Molecular Dynamics (MD). The toolkit is 
-programmed to run efficiently on parallel computers. It was developed at Compute Aided
-Rational Design lab at Indian Institute of Technology Bombay, India. 
+programmed to run efficiently on parallel computers. It was developed at Computer Aided
+Rational Design of Materials lab, Chemical Engineering at Indian Institute of 
+Technology Bombay, India. 
 
 The primary authors of the code are Abhijit Chatterjee (abhijit@che.iitb.ac.in) and 
 Saurabh Shivpuje (saurabh.shivpuje@gmail.com).
