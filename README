@@ -14,32 +14,37 @@ Technology Bombay, India.
 The primary authors of the code are Abhijit Chatterjee (abhijit@che.iitb.ac.in) and 
 Saurabh Shivpuje (saurabh.shivpuje@gmail.com).
 
-This directory includes the following files and sub-directories: 
+The files and directories included in this directory are: 
 
-README			   this file
-LICENSE			   the Apache License 2.0 
-examples		   simple test problems
-tpmd_toolkit		   TPMD analysis tools
+src_tools/		TPMD pre- and post-analysis tools' source code
+trajectories/		trajectories to be analyzed should be arranged here
+start.sh		execution file to operate all analysis tools
+parameters.txt		input file required for TPMD analysis
+README			this file
 
-Before using this package, you must make sure that you have the following software 
-installed on your system: GNU Bash, Fortran, gnuplot, and LAMMPS.
+After doing any analysis, the following directories might be generated:
 
-The first step in the TPMD is to create multiple TPMD trajectories at different temperature
-stages. This process is explained in detail in the directory "examples". The second
-step is to analyze these trajectories in the "tpmd_toolkit" directory. You should look
-for README files in these directories to know their functioning in detail.
+results/		all the results of the analysis are stored here
+trajs/			temporary files created for processing data
+			
+-------------
 
-The second step requires the trajectories that are to be analyzed are arranged in 
-"trajectories" sub-directory inside the "tpmd_toolkit" directory.
+First, make sure the trajectories you want to analyze are correctly arranged in
+the "trajectories" directory. To learn about this, refer to "examples" directory
+in the parent directory to this directory. 
 
-Also, one can either create the TPMD trajectories elsewhere and then copy them inside 
-"trajectories" sub-directory or run the TPMD trajectory generation operation (first step)
-inside the sub-directory "trajectories" itself.
+Next, provide all the inputs in parameters.txt file. Again you can refer to
+parameters.txt files provided in the sub-directories of "examples".
 
-All these different trajectories should be arranged in individual directories with named
-in the natural order like 1, 2, 3,...n for n trajectories. 
+Now you should make the start.sh file executable using command "chmod +x start.sh". 
 
-After you have trajectories for analysis, you can refer to the README file in "tpmd_toolkit"
-sub-directory for the next steps.
+After ensuring all the above steps, you can run the program with command
+"./start.sh". The rest of the instructions and information will appear in the 
+terminal as you follow the steps mentioned by the program.
 
+Also, changing names of any directory or subdirectories and files from this directory
+onwards can cause errors in the running program.
 
+Note: The information of x, y, and z coordinates of atoms should be mentioned in 3rd, 
+4th and 5th column of trajectory file respectively. Atoms should be present in 
+increasing order of their index number.
