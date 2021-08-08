@@ -1,0 +1,10 @@
+First passage time (FPT) and new-state indexing tool
+
+The files included in this directory are: 
+
+README			this file
+begin.sh		initiates the state identification and indexing process 
+state.sh		assigns state indexes for the new state found
+scounter.txt		keeps count of new states found
+
+For more details, you can refer to the individual files.

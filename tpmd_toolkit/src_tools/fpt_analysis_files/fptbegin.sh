@@ -26,7 +26,7 @@
 #
 #Authors: Abhijit Chatterjee (abhijit@che.iitb.ac.in), Saurabh Shivpuje (saurabh.shivpuje@gmail.com)
 #
-#Date of Modification: 12 May 2020
+#Date of Modification: 05 August 2021
 #.......................................................................................................................................
 
 date > $glo_pwd/results/log.txt
@@ -49,10 +49,9 @@ mkdir $glo_pwd/results/plots
 mkdir $glo_pwd/results/thermalization
 mkdir $glo_pwd/results/allmechanisms #mechanisms of all the trajectories
 mkdir $glo_pwd/results/mechanisms #mechanism database
-echo 0 > $glo_pwd/src_tools/fpt_analysis_files/scounter.txt 
 echo 0 > $glo_pwd/results/mechanisms/0.state
 echo 0 >> $glo_pwd/results/mechanisms/0.state 
-echo "#State_index	FPT(timeunit)	Trajectory_number	Atom number(s) #Vibration_Tolerance=$glo_tol,#Distance_limit=$glo_dist,#Frame_condition=$glo_nfpt"  > $glo_pwd/results/statestat.txt
+#echo "#State_index	FPT(timeunit)	Trajectory_number	Atom number(s) #Vibration_Tolerance=$glo_tol,#Distance_limit=$glo_dist,#Frame_condition=$glo_nfpt"  > $glo_pwd/results/statestat.txt
 echo "#Warnings"  > $glo_pwd/results/warning.txt
 
 
@@ -70,6 +69,7 @@ echo "~~~~~~~~~~THERMALIZATION~~~~~~~~~~" >> $glo_pwd/results/log.txt
 echo "" >> $glo_pwd/results/log.txt
 echo "Thermalization stability check begins..." >> $glo_pwd/results/log.txt
 
+chmod +x $glo_pwd/src_tools/fpt_analysis_files/tequil.sh
 $glo_pwd/src_tools/fpt_analysis_files/tequil.sh 
 	
 echo "Thermalization stability check ends" >> $glo_pwd/results/log.txt

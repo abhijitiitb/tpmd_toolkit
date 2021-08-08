@@ -1,10 +1,10 @@
-"/media/saurabhshivpuje/work/PUBLICATIONS/tpmd_toolkit_paper/tpmd_toolkit/tpmd_toolkit/results/statestat.txt"  input file containing TPMD FPT data
-16 number of states found
-980 number of first passage times
+"/home/saurabh/tpmd_toolkit-2021/tpmd_toolkit/results/statestat.txt"  input file containing TPMD FPT data
+5 number of states found
+10 number of first passage times
 30 Stage duration tau (in ps)
 300 Temperature in stage 0 (initial stage, in K)
 100 Temperature step (in K)
 900 Maximum temperature (in K)
 0  initial state idnex (typically 0/1)
 1 number of states to be included/excluded
-3  final state index (1)
+2  final state index (1)

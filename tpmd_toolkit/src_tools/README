@@ -4,8 +4,12 @@ The files and directories included in this directory are:
 
 dispVStime/		generates plots for atom's displacement in each frame
 			from an initial position as requested by the user
-fpt_analysis_files/	calculates fpt for each trajectory and assigns state
-			index to them
+fpt_analysis_files/	detects transition for each trajectory and generates
+			their mechanism file
+state_indexing/		assigns indexes to newly found state by comparing
+			mechanism file
+mle/			estimates kinetic parameters using FPT data generated
+			by state_indexing operation 
 neb/			creates an input file for NEB calculation on LAMMPS 
 vmd/			creates VMD visualisation file for first frame and
 			a final frame requested by the user

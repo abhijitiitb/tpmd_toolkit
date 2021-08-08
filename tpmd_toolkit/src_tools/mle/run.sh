@@ -33,6 +33,7 @@ clear
 chmod +x print_fpt_input.sh
 chmod +x find_max_index.sh
 chmod +x compile.sh
+chmod +x frequently_visited_states.sh
 
 skipstep=0
 

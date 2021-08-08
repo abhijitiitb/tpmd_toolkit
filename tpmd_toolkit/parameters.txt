@@ -3,7 +3,7 @@
 System name=SilverTrimer
 Name of trajectory file=nvt.lammpstrj
 Name of thermal equilibration trajectory file=tequil.lammpstrj
-Number of trajectories=1000
+Number of trajectories=10
 Number of parallel processes=5
 Total number of atoms in the system=1179				
 Minimum number of consequtive frames for transition validation=5

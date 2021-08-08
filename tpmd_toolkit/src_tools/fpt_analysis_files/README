@@ -13,9 +13,6 @@ framescan.sh		scans the trajectory frame by frame for transition
 transition.sh		rechecks transition details and registers it
 pbc.sh			takes care of periodic boundry conditions(PBC)
 sign.awk		function to remove the effect of PBC on displacement
-state.sh		assigns state indexes for the new state found
-scounter.txt		keeps count of new states found
-plot.sh			plots the count of state versus temperature stage
 			and state indexes  
 
 For more details, you can refer to the individual files.

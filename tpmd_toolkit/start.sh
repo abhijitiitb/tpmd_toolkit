@@ -113,14 +113,15 @@ fi
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Interactive interface on terminal~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 echo "Choose the operation"
-echo "[1] FPT analysis"
-echo "[2] Maximum Likelihood estimation (MLE)"
-echo "[3] Displacement v/s frame plot"
-echo "[4] Visualizing initial and final frame" 
-echo "[5] NEB calculation input file for LAMMPS"
+echo "[1] Transition detection"
+echo "[2] State indexing"
+echo "[3] Maximum likelihood estimation (MLE)"
+echo "[4] Displacement v/s frame plot"
+echo "[5] Visualizing initial and final frame" 
+echo "[6] NEB calculation input file for LAMMPS"
 read -p "Submit the option number accordingly:" ans
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[1] FPT analysis~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[1] Transition detection and mechanism file generation ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 if [ $ans == "1" ]
 then
@@ -155,9 +156,20 @@ then
 	echo "To exit from process change ./src_tools/fpt_analysis_files/exit.txt file text from '0' to '1' and save the file. "
 	echo 0 > $glo_pwd/src_tools/fpt_analysis_files/exit.txt #Required for exit mechanims in process
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[2] Maximum Likelihood estimation (MLE)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[2] State indexing and FPT collection ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 elif [ $ans == "2" ]
+then
+	
+	echo "Process began..."
+	chmod +x $glo_pwd/src_tools/state_indexing/begin.sh
+	$glo_pwd/src_tools/state_indexing/begin.sh  &>> $glo_pwd/results/error.txt &
+        echo "Please check ./results/log.txt file for status of process"
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[3] Maximum likelihood estimation (MLE)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+elif [ $ans == "3" ]
 then
 	
 
@@ -165,28 +177,28 @@ then
 	$glo_pwd/src_tools/mle/run.sh
 	
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[3] Displacement v/s frame plot~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[4] Displacement v/s frame plot~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-elif [ $ans == "3" ]
+elif [ $ans == "4" ]
 then
 	chmod +x $glo_pwd/src_tools/dispVSframe/input.sh
 	$glo_pwd/src_tools/dispVSframe/input.sh
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[4] Visualizing initial and final frame~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[5] Visualizing initial and final frame~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-elif [ $ans == "4" ]
+elif [ $ans == "5" ]
 then
 	chmod +x $glo_pwd/src_tools/vmd/vmd.sh
 	$glo_pwd/src_tools/vmd/vmd.sh
 
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[5] NEB calculation input file for LAMMPS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[6] NEB calculation input file for LAMMPS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-elif [ $ans == "5" ]
+elif [ $ans == "6" ]
 then
 	chmod +x $glo_pwd/src_tools/neb/input.sh
 	$glo_pwd/src_tools/neb/input.sh

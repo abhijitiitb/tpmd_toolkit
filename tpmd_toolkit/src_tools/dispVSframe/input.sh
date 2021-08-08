@@ -25,6 +25,7 @@
 #
 #Date of Modification: 11 May 2020
 #.......................................................................................................................................
+chmod +x $glo_pwd/src_tools/dispVSframe/unpbc.sh
 
 #	cp $glo_pwd/parameters.txt $glo_pwd/src_tools/dispVSframe/
 	read -p "Choose trajectory [type trajectory number]:" traj

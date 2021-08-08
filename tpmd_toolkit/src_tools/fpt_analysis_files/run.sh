@@ -99,29 +99,11 @@ then
 
 echo "" >> $glo_pwd/results/log.txt
 echo "Transition detection completed." >> $glo_pwd/results/log.txt
-echo "" >> $glo_pwd/results/log.txt
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Post transition detection processes are evoked here~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-echo "~~~~~~~~~~STATE INDEXING~~~~~~~~~~" >> $glo_pwd/results/log.txt
-
-echo "" >> $glo_pwd/results/log.txt
-echo "State indexing began..." >> $glo_pwd/results/log.txt
-
-$glo_pwd/src_tools/fpt_analysis_files/state.sh
-$glo_pwd/src_tools/fpt_analysis_files/plot.sh
-
-echo "State indexing completed." >> $glo_pwd/results/log.txt
-echo "" >> $glo_pwd/results/log.txt
-echo "Check the /results/plots/ and /results/statestat.txt for state indexing information" >> $glo_pwd/results/log.txt 
-echo "Check the /results/error.txt for errors" >> $glo_pwd/results/log.txt 
-echo "New states found and thier mechanisms are stored in mechanism/ directory" >> $glo_pwd/results/log.txt
-echo "To check the transition mechanism for all the directories refer allmechanism/ directory " >> $glo_pwd/results/log.txt
-echo "" >> $glo_pwd/results/log.txt
-
-echo "Whole process completed." >> $glo_pwd/results/log.txt
-echo "Program stopped." >> $glo_pwd/results/log.txt
 date >> $glo_pwd/results/log.txt
+echo "" >> $glo_pwd/results/log.txt
+echo "" >> $glo_pwd/results/log.txt
 
 fi
+
+
+

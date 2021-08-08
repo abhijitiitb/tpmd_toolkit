@@ -25,9 +25,18 @@
 #
 #Authors: Abhijit Chatterjee (abhijit@che.iitb.ac.in), Saurabh Shivpuje (saurabh.shivpuje@gmail.com)
 #
-#Date of Modification: 13 August 2019
+#Date of Modification: 05 August 2021
 #.......................................................................................................................................
 
+
+rm $glo_pwd/results/allmechanisms/* 
+rm $glo_pwd/results/mechanisms/*
+mkdir $glo_pwd/results/mechanisms #mechanism database
+echo 0 > $glo_pwd/results/mechanisms/0.state
+echo 0 >> $glo_pwd/results/mechanisms/0.state
+rm $glo_pwd/results/statestat.txt
+cp -r $glo_pwd/trajs/allmechanisms $glo_pwd/trajs/allmechanisms_hold
+echo "#State_index      FPT(timeunit)   Trajectory_number       Atom number(s) #Vibration_Tolerance=$glo_tol,#Distance_limit=$glo_dist,#Frame_condition=$glo_nfpt"  > $glo_pwd/results/statestat.txt
 
 #Go through all mechanism files one by one to assign the state index
 sort -k1 -n $glo_pwd/trajs/mechanism.list -o $glo_pwd/trajs/mechanism.list 
@@ -51,7 +60,7 @@ do
 
 found=0
 g=$( sed -n "$f p" $glo_pwd/trajs/mechanism.list | awk '{print $1}' ) #trajectory number
-n=$( head -1 $glo_pwd/src_tools/fpt_analysis_files/scounter.txt) #State index counter
+n=$( head -1 $glo_pwd/src_tools/state_indexing/scounter.txt) #State index counter
 
 fpt=$(tail -1 $glo_pwd/trajs/allmechanisms/$g.txt | awk '{print $1}') #FPT
 aa_atoms=$( sed -n "2 p" $glo_pwd/trajs/allmechanisms/$g.txt  | awk '{ print $0}') 
@@ -136,7 +145,7 @@ aa_atoms=$( sed -n "2 p" $glo_pwd/trajs/allmechanisms/$g.txt  | awk '{ print $0}
 	if [ $found -eq 0 ]
 	then
 	n=$( expr $n + 1 )
-	echo $n > $glo_pwd/src_tools/fpt_analysis_files/scounter.txt
+	echo $n > $glo_pwd/src_tools/state_indexing/scounter.txt
 	echo $n $fpt $g $aa_atoms>> $glo_pwd/results/statestat.txt
 	sed -i '1i'$n'  :state index(mechanism type) \' $glo_pwd/trajs/allmechanisms/$g.txt
 	cp $glo_pwd/trajs/allmechanisms/$g.txt $glo_pwd/results/mechanisms/$n.state
@@ -145,3 +154,5 @@ aa_atoms=$( sed -n "2 p" $glo_pwd/trajs/allmechanisms/$g.txt  | awk '{ print $0}
 
 done
 
+rm -r $glo_pwd/trajs/allmechanisms
+mv $glo_pwd/trajs/allmechanisms_hold $glo_pwd/trajs/allmechanisms

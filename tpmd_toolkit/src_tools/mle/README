@@ -1,0 +1,27 @@
+Computes rate constant, pre-exponential factor and activation barrier for 
+user-selected kinetic pathways in statestat.txt using the procedure described
+in S Shivpuje, M Kumawat, A Chatterjee, Computer Physics Communications 
+262, 107828 (2021)
+statestat.txt contains details of transitions obtained in MD/TPMD trajectories.
+For each trajectory the states accessed from a given state (state 0)
+and the first passage time are provided. This information is used to calculate
+the rate constant, pre-exponential factor and activation barrier.
+
+The files included in this directory are:
+
+fpt.input                        input file used by tpmd-analysis.x (automatically created by run.sh)
+README                           this file
+find_max_index.sh                utility for finding number of states connected to state 0
+frequently_visited_states.sh     utility for finding which states are visited most frequently
+print_fpt_input.sh               prints fpt.input file 
+run.sh                           script file for obtaining user input, creating fpt.input
+compile.sh                       compiles F90 files
+tpmd-analysis.x                  executable file generated from F90 files
+main.f90                         TPMD rate estimator file
+tpmdvariables.f90                TPMD rate estimator file
+tpmdmodule1.f90                  TPMD rate estimator file
+tpmdmodule2.f90                  TPMD rate estimator file
+tpmdmodule3.f90                  TPMD rate estimator file
+
+For more details, you can refer to the individual files.
+
